@@ -8,6 +8,8 @@ class Controlador
 
     public function main()
     {
+
+        
       //  print_r($_GET);
         $controlador="";
         $accion="";
@@ -29,22 +31,32 @@ class Controlador
             $accion="";
         }
 
-        echo $controlador;
-        echo "<br />";
-        echo $accion;
+       
         if (file_exists("./controladores/".ucfirst($controlador)."Controlador.php"))
         {
             require_once("./controladores/".ucfirst($controlador)."Controlador.php");
             $nombreClase=ucfirst($controlador)."Controlador";
-            echo "<br />".$nombreClase;
             $contro= new $nombreClase();
             if ($accion!="")
             {
-                $contro->$accion();
+                if (method_exists($contro,$accion))
+                {
+                    $contro->$accion();
+                }
+                else{
+                    $data["errorvalidacion"]="Imposible realizar la acción";
+                    require_once("./vistas/Vista.php");
+                    $vista= new Vista();
+                    $vista->render("inicio",$data);
+        
+                }
+               
             }
             else
             {
-                echo "404 error";
+                require_once("./controladores/InicioControlador.php");
+                $contro= new InicioControlador();
+                $contro->irAInicio();
             }
 
             
@@ -53,6 +65,7 @@ class Controlador
         {
             require_once("./controladores/InicioControlador.php");
             $contro= new InicioControlador();
+            $contro->irAInicio();
         }
 
 

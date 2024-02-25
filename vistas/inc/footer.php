@@ -11,6 +11,6 @@
 </div>
 
 
-     <script src="./assets/js/form-validation.js"></script>
+     <script src="<?php echo $ruta; ?>assets/js/form-validation.js"></script>
   </body>
 </html>

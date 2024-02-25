@@ -10,8 +10,9 @@
 
     
 
+
     <!-- Bootstrap core CSS -->
-<link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="<?php echo $ruta; ?>assets/css/bootstrap.min.css" rel="stylesheet">
 
    
 
@@ -38,14 +39,26 @@ include "./vistas/inc/header.php";
        <div class="col-md-2 col-lg-2"></div>
       <div class="col-md-8 col-lg-8">
       
-        <form class="needs-validation" novalidate>
+        <form class="needs-validation" method="POST" action="<?php echo $ruta;?>inicio/validar" novalidate>
           <div class="row g-3">
-            
+           
+              <?php
+
+              if (isset($data["errorvalidacion"]))
+              {
+                ?>
+                 <div class="alert alert-danger">
+                  <?php echo $data["errorvalidacion"];?>
+                 </div>
+                <?php
+              }
+              ?>
+
             <div class="col-12">
               <label for="username" class="form-label">Introduce tu código secreto. </label>
               <div class="input-group has-validation">
                 <span class="input-group-text">Código</span>
-                <input type="text" class="form-control" maxlength=4 minlength=4 id="codigo" placeholder="Mi código secreto " required>
+                <input type="text" class="form-control" maxlength=4 minlength=4 id="codigo" name="codigo" placeholder="Mi código secreto " required>
               <div class="invalid-feedback">
                  Error al introducir el código de acceso. Recuerda que es un número de 4 dígitos. Si tienes problemas para acceder llama al número: 
 				 <a href="tel:+34626786545"><strong>Tel: 626.786.545</strong></a>

@@ -11,12 +11,8 @@
     
 
     <!-- Bootstrap core CSS -->
-<link href="./assets/css/bootstrap.min.css" rel="stylesheet">
 
-   
-
-    
-   
+<link href="<?php echo $ruta; ?>assets/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
     
@@ -46,10 +42,10 @@ include "./vistas/inc/header.php";
       <table class="table text-center">
         <thead>
           <tr>
-            <th style="width: 34%;"></th>
-            <th style="width: 22%;">Hora</th>
-            <th style="width: 22%;">Dia</th>
-            <th style="width: 22%;">Mes</th>
+            <th style="width: 34%;">Nombre (tipo)</th>
+            <th style="width: 22%;">Duracion</th>
+            <th style="width: 22%;">Frecuencia</th>
+            <th style="width: 22%;">Fecha inicio</th>
           </tr>
         </thead>
         
@@ -64,11 +60,18 @@ include "./vistas/inc/header.php";
         
            ?>
 <tr class="alert alert-light">
-            <th scope="row" class="text-start"><button type="button" class="btn btn-info">Tomada</button> <?php echo $data[$i]["nombre"];?> (<?php echo $data[$i]["tipo"];?> )</th>
-            <td><?php echo $data[$i]["duracion"];?> </td>
+            <th scope="row" class="text-start"><?php echo $data[$i]["nombre"];?> (<?php echo $data[$i]["tipo"];?> )</th>
+            <td><?php echo $data[$i]["duracion"];?> días</td>
             <td><?php echo $data[$i]["frecuencia"];?> </td>
-            <td><?php echo $data[$i]["fechacreacion"];?> </td>
-			 <td><button type="button" class="btn btn-primary">Editar</button></td>
+            <td><?php echo $data[$i]["fechacreacion"];?> horas </td>
+			 <td>
+          
+       <form method="POST" action="<?php echo $ruta;?>listado/eliminar">
+       <input type="hidden" name="id" value="<?php echo $data[$i]["id"];?>"/>
+       <button type="submit" class="btn btn-danger">Eliminar</button>
+       </form>
+      
+      </td>
           </tr>
            <?php
        }

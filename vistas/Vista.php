@@ -8,7 +8,13 @@ class Vista
 
     public function render($vista,$data)
     {
-        echo "hola caracola";
+      
+        //Obtener la ruta de los ficheros css y js
+        require_once("./config/Enrutador.php");
+        $enrutador= new Enrutador();
+        $ruta=$enrutador->getRuta();    
+      
+
         if (file_exists("./vistas/".$vista.".php"))
         {
             include_once "./vistas/".$vista.".php";

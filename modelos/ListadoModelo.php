@@ -7,6 +7,29 @@ class ListadoModelo
         $this->var = $var;
     }
 
+    public function eliminarPastilla($id)
+    {
+
+        echo "estoy en modelo";
+        require_once("./lib/GestorBD.php");
+        $gbd= new GestorBD();
+
+        if ($gbd->conectar())
+        {
+            //Eliminar pastilla
+            
+            $data= $gbd->eliminarPastilla($id);
+         
+            
+        }
+        else
+        {
+            $data["errno"]=true;
+        }
+
+        return $data;
+
+    }
     public function getListadoPastillas($codigo)
     {
         require_once("./lib/GestorBD.php");
@@ -15,14 +38,14 @@ class ListadoModelo
         if ($gbd->conectar())
         {
             //Me he conectado bien
-            echo "<br />conexion correcta";
+            
             $data= $gbd->getPastillas($codigo);
          
             
         }
         else
         {
-            echo "error grave de conexion";
+            $data["errno"]=true;
         }
 
         return $data;
