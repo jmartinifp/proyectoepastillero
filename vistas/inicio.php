@@ -29,11 +29,13 @@
 
 include "./vistas/inc/header.php";
 
+
 ?>
 <!-----CUERPO --->
 
   <main>
-   
+    
+  
    <!-----CODIGO SECRETO --->
    <div class="row g-5">
        <div class="col-md-2 col-lg-2"></div>
@@ -58,7 +60,7 @@ include "./vistas/inc/header.php";
               <label for="username" class="form-label">Introduce tu código secreto. </label>
               <div class="input-group has-validation">
                 <span class="input-group-text">Código</span>
-                <input type="text" class="form-control" maxlength=4 minlength=4 id="codigo" name="codigo" placeholder="Mi código secreto " required>
+                <input type="text" class="form-control"  id="codigo" name="codigo" placeholder="Mi código secreto " required>
               <div class="invalid-feedback">
                  Error al introducir el código de acceso. Recuerda que es un número de 4 dígitos. Si tienes problemas para acceder llama al número: 
 				 <a href="tel:+34626786545"><strong>Tel: 626.786.545</strong></a>

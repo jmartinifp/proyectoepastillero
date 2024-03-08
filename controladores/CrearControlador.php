@@ -39,12 +39,15 @@ class CrearControlador
         {
              //Recoger los datos tipo POST
             
-           
+             require_once("./lib/Seguridad.php");
+        
+             $seg= new Seguridad();
             //Acceder al modelo CrearModelo
             require_once ("./modelos/CrearModelo.php");
+
             $modelo= new CrearModelo();
             $codigo= $ses->obtenerValorDeSesion("CLAVE");
-            $nombre=$_POST["nombre"];
+            $nombre=$seg->limpiar($_POST["nombre"]);
             $duracion=$_POST["duracion"];
             $frecuencia=$_POST["frecuencia"];
             $tipodepastilla=$_POST["tipodepastilla"];

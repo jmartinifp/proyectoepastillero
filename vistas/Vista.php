@@ -11,6 +11,10 @@ class Vista
       
         //Obtener la ruta de los ficheros css y js
         require_once("./config/Enrutador.php");
+        require_once("./lib/Seguridad.php");
+        
+        $seg= new Seguridad();
+       
         $enrutador= new Enrutador();
         $ruta=$enrutador->getRuta();    
       

@@ -60,7 +60,7 @@ include "./vistas/inc/header.php";
         
            ?>
 <tr class="alert alert-light">
-            <th scope="row" class="text-start"><?php echo $data[$i]["nombre"];?> (<?php echo $data[$i]["tipo"];?> )</th>
+            <th scope="row" class="text-start"><?php echo $seg->limpiar($data[$i]["nombre"]);?> (<?php echo $data[$i]["tipo"];?> )</th>
             <td><?php echo $data[$i]["duracion"];?> días</td>
             <td><?php echo $data[$i]["frecuencia"];?> </td>
             <td><?php echo $data[$i]["fechacreacion"];?> horas </td>

@@ -10,7 +10,7 @@ class ListadoModelo
     public function eliminarPastilla($id)
     {
 
-        echo "estoy en modelo";
+       
         require_once("./lib/GestorBD.php");
         $gbd= new GestorBD();
 

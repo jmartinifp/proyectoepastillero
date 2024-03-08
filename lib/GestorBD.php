@@ -42,8 +42,8 @@ class GestorBD
 
     public function validar($codigo)
     {
-      $sql= "SELECT * FROM usuarios WHERE codigo=".$codigo;
-     // echo $sql;
+      $sql= "SELECT * FROM usuarios WHERE codigo='".$codigo."'";
+    //echo $sql;
       
       $data=array();
 
@@ -71,8 +71,8 @@ class GestorBD
     public function eliminarPastilla($id)
     {
       $sql= "DELETE FROM pastillas WHERE id=".$id;
-      echo $sql;
-      
+     // echo $sql;
+       
       if ($result=$this->conn->query($sql))
       {
          return true;
