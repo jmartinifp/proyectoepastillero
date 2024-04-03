@@ -10,7 +10,25 @@ class GestorBD
 
    public function conectar()
    {
+
+    
+    $this->conn=null;
+    if (file_exists("local.txt"))
+    {
       $this->conn= new mysqli("localhost","root","","epastillero");
+    }
+    else if (file_exists("preproduccion.txt"))
+    {
+      $this->conn= new mysqli("localhost","if0_36265909","aRFR2fN6SseIP","if0_36265909_mibasededatos");
+    }
+    else if (file_exists("pruebas.txt"))
+    {
+      $this->conn= new mysqli("db4free.net:3306","epastillero","epastillero2024.","epastillero");
+    }
+
+
+     
+      //$this->conn= new mysqli("localhost","root","","epastillero");
       if ($this->conn->connect_error!=null)
       {
         return false;
@@ -43,8 +61,7 @@ class GestorBD
     public function validar($codigo)
     {
       $sql= "SELECT * FROM usuarios WHERE codigo='".$codigo."'";
-    //echo $sql;
-      
+      /*echo $sql;*/
       $data=array();
 
       $result=$this->conn->query($sql);

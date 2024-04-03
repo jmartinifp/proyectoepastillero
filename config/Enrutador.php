@@ -8,8 +8,18 @@ class Enrutador
     public function getRuta()
     {
 
-        $partes= explode("/", $_SERVER["SCRIPT_NAME"]);
-        $ruta= "/".$partes[1]."/".$partes[2]."/";
+        $ruta= "Sin Ruta";
+        if (file_exists("local.txt"))
+        {
+            $ruta= "http://localhost/workspacevc/proyectoepastillero/";
+        }
+        else if (file_exists("preproduccion.txt"))
+        {
+            $ruta= "http://epastillero.free.nf/";
+        }
+     
+       
+        echo $ruta;
         return $ruta;
       
     }

@@ -3,43 +3,24 @@
 use PHPUnit\Framework\TestCase;
 require_once("./lib/GestorBD.php");
 
+
 class GestorBDTest extends TestCase
 {
 
-     public function testConectar()
-     {
-        
-        $gbd= new GestorBD();
+    public function testValidar()
+    {
+        $g= new GestorBD();
+        $g->conectar();
 
-        $this->assertEquals($gbd->conectar(), true);
-
-
-     }
-
-     public function testGetPastillas()
-     {
-        
-        $gbd= new GestorBD();
-        $gbd->conectar();
+        $this->assertEquals($g->validar("1234"),true);
+        $this->assertEquals($g->validar("433434"),false);
+        $this->assertEquals($g->validar("3333 or 1=1"),false);
 
 
-        $this->assertEquals($gbd->getPastillas("87676"), array());
-
-
-     }
-
-     /*public function testEliminarPastilla()
-     {
-        
-        $gbd= new GestorBD();
-        $gbd->conectar();
-
-
-       // $this->assertEquals($gbd->eliminarPastilla("87676"), false);
-
-
-     }*/
-
+    }
 
 
 }
+
+
+?>

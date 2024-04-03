@@ -47,7 +47,7 @@ class CrearControlador
 
             $modelo= new CrearModelo();
             $codigo= $ses->obtenerValorDeSesion("CLAVE");
-            $nombre=$seg->limpiar($_POST["nombre"]);
+            $nombre=$_POST["nombre"];
             $duracion=$_POST["duracion"];
             $frecuencia=$_POST["frecuencia"];
             $tipodepastilla=$_POST["tipodepastilla"];
