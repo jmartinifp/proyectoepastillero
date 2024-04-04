@@ -1,0 +1,5 @@
+RewriteEngine On  
+Options All -Indexes
+RewriteRule ^([a-zA-Z0-9/-]+)/([a-zA-Z0-9/-]+)$ index.php?controlador=$1&accion=$2 [L,QSA]
+RewriteRule ^([a-zA-Z0-9/-]+)$ index.php?controlador=$1 [L,QSA]
+
