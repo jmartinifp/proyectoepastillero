@@ -17,9 +17,9 @@ class GestorBD
     {
       $this->conn= new mysqli("localhost","root","","epastillero");
     }
-    else if (file_exists("preproduccion.txt"))
+    else if (file_exists("produccion.txt"))
     {
-      $this->conn= new mysqli("localhost","if0_36265909","aRFR2fN6SseIP","if0_36265909_mibasededatos");
+      $this->conn= new mysqli("sql312.infinityfree.com","if0_36297199","mGpXVNWEwId5","if0_36297199_epastillero");
     }
     else if (file_exists("pruebas.txt"))
     {
