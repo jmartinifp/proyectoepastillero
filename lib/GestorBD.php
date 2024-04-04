@@ -11,24 +11,12 @@ class GestorBD
    public function conectar()
    {
 
+     $this->conn= new mysqli("localhost","root","","epastillero");
     
-    $this->conn=null;
-    if (file_exists("local.txt"))
-    {
-      $this->conn= new mysqli("localhost","root","","epastillero");
-    }
-    else if (file_exists("produccion.txt"))
-    {
-      $this->conn= new mysqli("sql312.infinityfree.com","if0_36297199","mGpXVNWEwId5","if0_36297199_epastillero");
-    }
-    else if (file_exists("pruebas.txt"))
-    {
-      $this->conn= new mysqli("db4free.net:3306","epastillero","epastillero2024.","epastillero");
-    }
 
 
      
-      //$this->conn= new mysqli("localhost","root","","epastillero");
+      //$this->conn= new mysqli("db4free.net:3306","epastillero","epastillero2024.","epastillero");
       if ($this->conn->connect_error!=null)
       {
         return false;
