@@ -29,17 +29,17 @@ class Configuracion
           $this->rutaServidor="entornodepruebas.free.nf/";
           $this->getServidorBD="sql209.infinityfree.com";
           $this->usuarioBD="if0_36313191";
-          $this->passwordBD="";
+          $this->passwordBD="bYNEws1Sey9o3Z";
           $this->nombreBD="if0_36313191_entornopruebas";
         }
         else if (file_exists("produccion.txt"))
         {
           //Entorno local
           $this->rutaServidor="servidordeproduccion.free.nf/";
-          $this->getServidorBD="localhost";
-          $this->usuarioBD="root";
-          $this->passwordBD="";
-          $this->nombreBD="epastillero";
+          $this->getServidorBD="sql312.infinityfree.com";
+          $this->usuarioBD="if0_36297199";
+          $this->passwordBD="mGpXVNWEwId5";
+          $this->nombreBD="if0_36297199_epastillero";
         }
         
 
