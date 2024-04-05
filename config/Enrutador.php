@@ -11,10 +11,10 @@ class Enrutador
     public function getRuta()
     {
 
+        $conf = Configuracion::getInstance();
 
-       
-        $ruta= "http://localhost/workspacevc/proyectoepastillero/"; 
-     
+        $ruta= $conf->getRutaServidor();
+   
        
         echo $ruta;
         return $ruta;
